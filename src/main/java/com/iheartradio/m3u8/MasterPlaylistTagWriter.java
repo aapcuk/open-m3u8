@@ -9,6 +9,7 @@ import com.iheartradio.m3u8.data.IFrameStreamInfo;
 import com.iheartradio.m3u8.data.IStreamInfo;
 import com.iheartradio.m3u8.data.MasterPlaylist;
 import com.iheartradio.m3u8.data.MediaData;
+import com.iheartradio.m3u8.data.MediaType;
 import com.iheartradio.m3u8.data.Playlist;
 import com.iheartradio.m3u8.data.PlaylistData;
 import com.iheartradio.m3u8.data.StreamInfo;
@@ -133,7 +134,7 @@ abstract class MasterPlaylistTagWriter extends ExtTagWriter {
             HANDLERS.put(Constants.FORCED, new AttributeWriter<MediaData>() {
                 @Override
                 public boolean containsAttribute(MediaData mediaData) {
-                    return true;
+                    return mediaData.getType() == MediaType.SUBTITLES;
                 }
                 
                 @Override
